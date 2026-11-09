@@ -8,3 +8,11 @@ car_data = pd.read_csv('vehicles_us.csv')
 # Cabeçalho e descrição do app
 st.header('Painel de anúncios de venda de carros')
 st.write('Explore os anúncios de carros usados nos EUA: quilometragem, preço e a relação entre os dois.')
+
+# Caixa de seleção que mostra o histograma da quilometragem
+build_histogram = st.checkbox('Mostrar histograma da quilometragem')
+
+if build_histogram:  # se a caixa for marcada
+    st.write('Distribuição da quilometragem (odometer) dos anúncios')
+    fig = px.histogram(car_data, x='odometer', title='Distribuição da quilometragem')
+    st.plotly_chart(fig)
