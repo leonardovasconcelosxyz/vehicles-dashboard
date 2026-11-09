@@ -16,3 +16,11 @@ if build_histogram:  # se a caixa for marcada
     st.write('Distribuição da quilometragem (odometer) dos anúncios')
     fig = px.histogram(car_data, x='odometer', title='Distribuição da quilometragem')
     st.plotly_chart(fig)
+
+    # Caixa de seleção que mostra a dispersão preço × quilometragem
+build_scatter = st.checkbox('Mostrar dispersão preço × quilometragem')
+
+if build_scatter:  # se a caixa for marcada
+    st.write('Relação entre a quilometragem (odometer) e o preço (price) dos anúncios')
+    fig = px.scatter(car_data, x='odometer', y='price', title='Preço × quilometragem')
+    st.plotly_chart(fig)
